@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "rafael3323.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "rafael3323.github",
+  "start_url": "https://rafael3323.github.io/AtividadeEstacionamento/estacionamento/index.html",
+  "theme_color": "#ffffff",
+  "lang": "pt"
+}
