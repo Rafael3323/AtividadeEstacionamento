@@ -1,4 +1,5 @@
-import { db } from "./firebaseConfig.js";
+import { db, auth } from "./firebaseConfig.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 import {
   collection,
   getDocs,
@@ -8,22 +9,34 @@ import {
 
 const vagasContainer = document.getElementById("vagasContainer");
 
+// 🔒 Verifica se o usuário está logado
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // Usuário não autenticado → redireciona para o login
+    window.location.href = "login.html";
+  } else {
+    console.log("Usuário logado:", user.email);
+    carregarVagas();
+  }
+});
+
+
 // Função principal
 async function carregarVagas() {
   const vagasSnapshot = await getDocs(collection(db, "vagas"));
-  vagasContainer.innerHTML = ""; // limpa antes de carregar
+  vagasContainer.innerHTML = "";
 
   vagasSnapshot.forEach((vagaDoc) => {
     const vagaData = vagaDoc.data();
     const vagaId = vagaDoc.id;
     const status = vagaData.status;
 
-    // Cria o elemento da vaga
     const vaga = document.createElement("li");
     vaga.classList.add("vaga");
-    vaga.textContent = vagaId; // ex: "vaga1"
+    vaga.textContent = vagaId;
+    vagasContainer.appendChild(vaga);
 
-    // Define cor de acordo com status
+    // Define cor
     switch (status) {
       case "livre":
         vaga.style.backgroundColor = "green";
@@ -36,10 +49,9 @@ async function carregarVagas() {
         break;
     }
 
-    // Clique para alternar o status
+    // Alterna status ao clicar
     vaga.addEventListener("click", async () => {
       let novoStatus;
-
       if (vaga.style.backgroundColor === "yellow") {
         vaga.style.backgroundColor = "red";
         novoStatus = "ocupada";
@@ -50,15 +62,7 @@ async function carregarVagas() {
         vaga.style.backgroundColor = "yellow";
         novoStatus = "reservada";
       }
-
       await setDoc(doc(db, "vagas", vagaId), { status: novoStatus });
-      console.log(`Vaga ${vagaId} atualizada para ${novoStatus}`);
     });
-
-    // Adiciona a vaga ao container
-    vagasContainer.appendChild(vaga);
   });
 }
-
-// Chama a função ao iniciar
-carregarVagas();

@@ -1,0 +1,95 @@
+/* Fundo geral */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container principal */
+.container {
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 340px;
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 1.8rem;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Inputs */
+input {
+  display: block;
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-left: auto;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+form{
+    margin-right: 20px;
+}
+input:focus {
+  border-color: #4e73df;
+}
+
+/* Botão */
+button {
+  background-color: #4e73df;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+  width: 100%;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #3755c0;
+}
+
+/* Texto abaixo */
+p {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Link */
+a {
+  color: #1cc88a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Mensagem de erro/sucesso */
+#mensagem {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+main{
+    justify-content: center;
+    align-items: center;
+}

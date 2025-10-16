@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css.css" />
-        <title>Estacionamento</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css.css" />
+    <title>Estacionamento</title>
+  </head>
 
-    <body>
-        <header>
+  <body>
+    <header id ="header">
+      <h2>Controle de Estacionamento</h2>
+    </header>
 
+    <main>
+      <section>
+        <div>
+          <h1>Estacionamento</h1>
+        </div>
 
+        <!-- Vagas -->
+        <div class="vagas" id="vagasContainer"></div>
 
-        </header>
+        <!-- Legenda -->
+        <ul class="legendas">
+          <li><span class="cor livre"></span> Livre</li>
+          <li><span class="cor reservada"></span> Reservada</li>
+          <li><span class="cor ocupada"></span> Ocupada</li>
+        </ul>
+      </section>
+    </main>
 
-        <main>
-            <section>
-                <div>
-                    <h1>Estacionamento</h1>
-                    
+    <footer>
+      <p>Estacione seu carro aqui e aproveite o estacionamento!</p>
+    </footer>
 
-                    
-                </div>
-                <div class="vagas" id="vagasContainer"></div>
-
-                <div class ="legendas"> 
-                    <li class="status"id="livre"> Livre</li>
-                    <li class="status" id="reservada"> Reservada</li>
-                    <li class="status" id="ocupada"> Ocupada</li>
-                </div>
-            </section>
-        </main>
-
-
-
-
-        <footer>
-            <p>Não estacione seu carro aqui</p>
-        </footer>
-        <script src="js.js"></script>
-    </body>
+    <script type="module" src="js.js"></script>
+  </body>
 </html>
